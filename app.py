@@ -10,7 +10,7 @@ os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
 def getLLamaResponse(input_text, no_words, blog_style):
 
     # Model calling
-    llm = HuggingFaceHub(repo_id="TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF", model_kwargs={"temperature":0.8, "max_length":4096,"max_new_tokens":4096})
+    llm = HuggingFaceHub(repo_id="daryl149/llama-2-7b-chat-hf", model_kwargs={"temperature":0.8, "max_length":4096,"max_new_tokens":4096, "task": "text-generation"})
 
     # Prompt Template
     template = """
