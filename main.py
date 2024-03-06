@@ -18,13 +18,13 @@ st.set_page_config(page_title='Blog Generation',
 def getResponse(input_text, no_words, blog_style):
 
     # Model calling
-    llm = HuggingFaceEndpoint(repo_id="mistralai/Mixtral-8x7B-Instruct-v0.1",temperature=0.8,max_new_tokens=4096)
+    llm = HuggingFaceEndpoint(repo_id="mistralai/Mixtral-8x7B-Instruct-v0.1",temperature=0.8,max_new_tokens=4096, return_full_text='false')
 
     # Prompt Template
     template = """
         You are the writing editor and can write the blog as if you are an experienced writer.
 
-        Write an article on "{input_text}" with the word count of {no_words}. Describe the topic as a story with examples that resonate with the reader. Stay on topic and deliver the message in a blog format suitable for the target audience: {blog_style}.
+        Write an article on "{input_text}". Maximum limit of words in the blog should be {no_words} words. Do not cross the word count limit as it's the one of the most essential parameter while writing the blog. Describe the topic as a story with examples that resonate with the reader. Stay on topic and deliver the message in a blog format suitable for the target audience: {blog_style}.
 
         Make the blog SEO-friendly.
 

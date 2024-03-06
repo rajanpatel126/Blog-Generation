@@ -1,6 +1,6 @@
-sentence-transformers
-uvicorn
-ctransformers
+langchain-community
+python-dotenv
 langchain
-python-box
 streamlit
+huggingface-hub
+google-api-python-client>=2.100.0
