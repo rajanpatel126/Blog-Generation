@@ -1,3 +1,5 @@
 .env
 *.bin
 venv
+__pycache__/*
+__pycache__/googleSearch.cpython-39.pyc

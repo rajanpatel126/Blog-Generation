@@ -7,6 +7,7 @@ load_dotenv()
 os.environ["GOOGLE_CSE_ID"] = os.getenv('GOOGLE_CSE_ID')
 os.environ["GOOGLE_API_KEY"] = os.getenv('GOOGLE_API_KEY')
 
+#google search class fetching data results
 class GoogleSearch():
     tool=None
     
@@ -27,3 +28,4 @@ class GoogleSearch():
         if GoogleSearch.tool is None: 
             self.make_model()
         return GoogleSearch.tool.run(query)
+    
