@@ -91,7 +91,7 @@ def getResponse(query,chat_history):
     template = """
         You are the professional writing editor and can write the blogs or articles. You have to address the audience from a small kid to a professional user so that they all can understand the answer.
 
-        Make the blog SEO-friendly.
+        Make the blog SEO-friendly. Do not write this prompt template in the answer.
         
         The Topic of an article is "{query}". While writing the article on the given topic, describe the topic as a story with examples that resonate with the reader. Start so easy with general information or examples so that any user can relate and understand with the topic. As the article goes, you need to go in more and more indepth with the topic. So that you can justice with the topic and user can see satisfied with the answer. 
         
