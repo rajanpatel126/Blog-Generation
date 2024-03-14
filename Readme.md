@@ -16,16 +16,24 @@
   [env]
   HUGGINGFACEHUB_API_TOKEN="your_huggingfacehub_api_key"
 
+- The searching data is coming from Google search, so generate your Google Api key then from the Google Cloud, enable the custom search and get the Google Custom Search enable key:
+  [env]
+  GOOGLE_CSE_ID="your_google_cse_id"
+  GOOGLE_API_KEY="your_google_api_key"
+
 ## Setup Environment
 
 ### Steps
 
 - Create a virtual environment:
-  bash
+  ```bash
   python -m venv venv
+  ```
 - Activate virtual environment:
-  bash
+  ```bash
   venv\Scripts\Activate.ps1
+  ```
 - Install Python modules:
-  bash
+  ```bash
   python -m pip install -r "requirements.txt"
+  ```
