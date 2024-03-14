@@ -23,43 +23,43 @@ if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
 #page confing and title of the page
-st.set_page_config(page_title='InfoGenX', page_icon='🤖',)
+st.set_page_config(page_title='Info-GenX', page_icon='🤖',)
 st.title(':blue[Info-GenX] Blogs 🤖')
-st.subheader('Your :green[Content fetching] and :green[Generating] Assistance', divider='rainbow')
+st.subheader('Your :green[Content Fetching] and :green[Generating] Assistance', divider='rainbow')
 
 with st.expander("About the Bot"):
     st.write("""
         Introducing "Info-GenX" 🤖: Your Ultimate Content Companion
 
-In the fast-paced world of digital content creation, the need for a seamless and efficient writing assistant has never been more apparent. Enter "Info-GenX," a revolutionary tool designed to redefine the way writers, bloggers, and content creators approach their craft.
+        In the fast-paced world of digital content creation, the need for a seamless and efficient writing assistant has never been more apparent. Enter "Info-GenX," a revolutionary tool designed to redefine the way writers, bloggers, and content creators approach their craft.
 
-🚀 Unleashing the Power of Real-Time Information Retrieval:
+        🚀 Unleashing the Power of Real-Time Information Retrieval:
 
-Info-GenX seamlessly integrates two powerful features—Google Search and AI Content Generation—to provide an unparalleled writing experience. Harness the latest information at your fingertips with a real-time Google search that ensures your content is not only relevant but also up-to-the-minute.
+        Info-GenX seamlessly integrates two powerful features—Google Search and AI Content Generation—to provide an unparalleled writing experience. Harness the latest information at your fingertips with a real-time Google search that ensures your content is not only relevant but also up-to-the-minute.
 
-🔍 Supercharged Google Search Results:
+        🔍 Supercharged Google Search Results:
 
-Ever wished for a tool that not only fetches Google search results but also transforms them into engaging, informative snippets? Look no further! Info-GenX combines the precision of Google Search with the flair of carefully curated content, delivering results that go beyond conventional search output.
+        Ever wished for a tool that not only fetches Google search results but also transforms them into engaging, informative snippets? Look no further! Info-GenX combines the precision of Google Search with the flair of carefully curated content, delivering results that go beyond conventional search output.
 
-📝 AI-Driven Content Generation:
+        📝 AI-Driven Content Generation:
 
-Inspired by the idea of an intelligent writing companion, Info-GenX employs cutting-edge language models to assist in crafting blog articles, posts, or any written content with ease. Simply input your topic, and watch as the AI weaves a compelling narrative tailored to your needs. It's like having a writing assistant available 24/7.
+        Inspired by the idea of an intelligent writing companion, Info-GenX employs cutting-edge language models to assist in crafting blog articles, posts, or any written content with ease. Simply input your topic, and watch as the AI weaves a compelling narrative tailored to your needs. It's like having a writing assistant available 24/7.
 
-🌐 Why Info-GenX?
+        🌐 Why Info-GenX?
 
-Efficiency Redefined: Save time and effort with a tool that streamlines your content creation process. Let Info-GenX do the heavy lifting, allowing you to focus on what truly matters—your creative expression.
+        Efficiency Redefined: Save time and effort with a tool that streamlines your content creation process. Let Info-GenX do the heavy lifting, allowing you to focus on what truly matters—your creative expression.
 
-Real-Time Relevance: Keep your content fresh and relevant with real-time Google search results. No more outdated information—Info-GenX ensures your writing stays ahead of the curve.
+        Real-Time Relevance: Keep your content fresh and relevant with real-time Google search results. No more outdated information—Info-GenX ensures your writing stays ahead of the curve.
 
-Tailored to Your Voice: The AI-driven content generation adapts to your writing style, providing personalized assistance that complements your unique voice. It's like having a writing companion that understands you.
+        Tailored to Your Voice: The AI-driven content generation adapts to your writing style, providing personalized assistance that complements your unique voice. It's like having a writing companion that understands you.
 
-SEO-Friendly Blogs: Craft content that not only captivates readers but also appeals to search engines. Info-GenX guides you in creating SEO-friendly blogs that stand out in the vast digital landscape.
+        SEO-Friendly Blogs: Craft content that not only captivates readers but also appeals to search engines. Info-GenX guides you in creating SEO-friendly blogs that stand out in the vast digital landscape.
 
-🌟 About Us:
+        🌟 About Us:
 
-As final-year project enthusiasts, we envisioned Info-GenX as a solution to the challenges faced by content creators. With a passion for technology and a commitment to simplifying the content creation journey, we embarked on this project to empower writers with tools that make a difference.
+        As final-year project enthusiasts, we envisioned Info-GenX as a solution to the challenges faced by content creators. With a passion for technology and a commitment to simplifying the content creation journey, we embarked on this project to empower writers with tools that make a difference.
 
-Join us on this exciting journey of creativity, innovation, and efficient content creation with Info-GenX—the ultimate writing companion for the modern content creator! 🚀✨
+        Join us on this exciting journey of creativity, innovation, and efficient content creation with Info-GenX—the ultimate writing companion for the modern content creator! 🚀✨
     """)
 
 #conversation set-up
