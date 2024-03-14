@@ -1,7 +1,6 @@
 from googleSearch import *
 import os
 import streamlit as st
-from langchain_community.utilities import GoogleSearchAPIWrapper
 from dotenv import load_dotenv
 from langchain.tools import Tool
 from langchain_core.prompts import ChatPromptTemplate
@@ -12,8 +11,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = os.getenv('HUGGINGFACEHUB_API_TOKEN')
-os.environ["GOOGLE_CSE_ID"] = os.getenv('GOOGLE_CSE_ID')
-os.environ["GOOGLE_API_KEY"] = os.getenv('GOOGLE_API_KEY')
 
 #object of the class
 google_obj= GoogleSearch()
@@ -26,6 +23,19 @@ if "chat_history" not in st.session_state:
 st.set_page_config(page_title='Info-GenX', page_icon='🤖',)
 st.title(':blue[Info-GenX] Blogs 🤖')
 st.subheader('Your :green[Content Fetching] and :green[Generating] Assistance', divider='rainbow')
+st.caption("Info-GenX can make mistakes. Consider checking important information.")
+
+#sample Prompts
+prompts = [
+    "Let's talk about superheroes and their powers!",
+    "Explain the concept of blockchain technology and its applications in finance.",
+    "I want to know about dinosaurs and fossils!",
+    "Explore the implications of climate change on global food security.",
+    "Tell me a story about magical creatures in a enchanted forest!",
+    "Discuss the impact of social media on modern marketing strategies."
+]
+
+st.markdown("***Here are some sample Prompts***\n" + "\n".join([f"- {prompt}" for prompt in prompts]))
 
 with st.expander("About the Bot"):
     st.write("""
@@ -79,13 +89,23 @@ def getResponse(query,chat_history):
 
     # Prompt Template
     template = """
-        You are the writing editor and can write the blog as if you are an experienced writer.
-
-        Write an article on "{query}". Describe the topic as a story with examples that resonate with the reader. Modify the blog as per the user requirements based on the history of chat.
-        
-        Chat_history = {chat_history}
+        You are the professional writing editor and can write the blogs or articles. You have to address the audience from a small kid to a professional user so that they all can understand the answer.
 
         Make the blog SEO-friendly.
+        
+        The Topic of an article is "{query}". While writing the article on the given topic, describe the topic as a story with examples that resonate with the reader. Start so easy with general information or examples so that any user can relate and understand with the topic. As the article goes, you need to go in more and more indepth with the topic. So that you can justice with the topic and user can see satisfied with the answer. 
+        
+        In response, give firstly the title of the article in double quote starting with: Title: "title"
+        and then onwards just give one article in the answer. The title should not be mentioned anywhere else in the article but just on the starting. You are not allowed to mentioned the article anywhere else.
+        
+        Once the whole article finished, give the SEO key words you have used in the article. It's not important to give SEO keywords at the end of each section of article, you can give it in the last. Do not write meta description in the answer, anywhere. 
+        
+        Overall, in the answer there should be firstly Title, secondly the Article and then conclude with SEO key words used in the last. After SEO keywords, you have to stop answering further. There is no need to write anything in the end.
+        
+        Erase the "</s>" from the end line. Remember It must not be displayed on screen.
+        
+        Modify the blog as per the user requirements based on the history of chat.
+        Chat_history = {chat_history}
 
         If the topic is illegal, harmful, or vulgar, respond with "I cannot assist you with illegal, harmful topics. Seeking information on such topics could indicate harmful intent."
         """
@@ -96,7 +116,7 @@ def getResponse(query,chat_history):
     return chain.stream({'chat_history':chat_history , 'query': query})
     
 #user input
-user_input = st.chat_input("Write the blog/article/post for...")
+user_input = st.chat_input("Write your blog topic or article idea...")
 if user_input is not None and user_input!="":
     st.session_state.chat_history.append(HumanMessage(user_input))
     
