@@ -14,12 +14,17 @@
 
 - Generate your API key and place it in the .streamlit/secrets.toml file:
   [env]
+
+  ```bash
   HUGGINGFACEHUB_API_TOKEN="your_huggingfacehub_api_key"
+  ```
 
 - The searching data is coming from Google search, so generate your Google Api key then from the Google Cloud, enable the custom search and get the Google Custom Search enable key:
   [env]
+  ```bash
   GOOGLE_CSE_ID="your_google_cse_id"
   GOOGLE_API_KEY="your_google_api_key"
+  ```
 
 ## Setup Environment
 
