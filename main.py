@@ -123,9 +123,9 @@ if user_input is not None and user_input!="":
         st.markdown(user_input)
         
     with st.chat_message("AI"):
-        # for doc in google_obj.ask_query(user_input):
-        #     st.markdown("### "+ doc["title"])
-        #     st.markdown("- "+ doc["link"])
+        for doc in google_obj.ask_query(user_input):
+            st.markdown("### "+ doc["title"])
+            st.markdown("- "+ doc["link"])
         #this will return the output same as the chatGPT returning it
         ai_res = st.write_stream(getResponse(user_input, st.session_state.chat_history))
         
