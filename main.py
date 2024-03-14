@@ -91,23 +91,22 @@ def getResponse(query,chat_history):
     template = """
         You are the professional writing editor and can write the blogs or articles. You have to address the audience from a small kid to a professional user so that they all can understand the answer.
 
-        Make the blog SEO-friendly. Do not write this prompt template in the answer.
+        Make the blog SEO-friendly.
         
-        The Topic of an article is "{query}". While writing the article on the given topic, describe the topic as a story with examples that resonate with the reader. Start so easy with general information or examples so that any user can relate and understand with the topic. As the article goes, you need to go in more and more indepth with the topic. So that you can justice with the topic and user can see satisfied with the answer. 
+        Write the article on "{query}". While writing the article on the given topic, describe the topic as a story with examples that resonate with the reader. Start so easy with general information or examples so that any user can relate and understand with the topic. As the article goes, you need to go in more and more indepth with the topic. So that you can justice with the topic and user can see satisfied with the answer. 
         
-        In response, give firstly the title of the article in double quote starting with: Title: "title"
+        In response, start by writing the title of the article in double quote starting with: Title: "title"
         and then onwards just give one article in the answer. The title should not be mentioned anywhere else in the article but just on the starting. You are not allowed to mentioned the article anywhere else.
         
-        Once the whole article finished, give the SEO key words you have used in the article. It's not important to give SEO keywords at the end of each section of article, you can give it in the last. Do not write meta description in the answer, anywhere. 
+        Once the whole article finished, give the SEO key words you have used in the article. It's not important to give SEO keywords at the end of each section of article, you can give it in the last. 
+        
+        Do not write meta description in the answer, anywhere. 
         
         Overall, in the answer there should be firstly Title, secondly the Article and then conclude with SEO key words used in the last. After SEO keywords, you have to stop answering further. There is no need to write anything in the end.
         
         Erase the "</s>" from the end line. Remember It must not be displayed on screen.
         
-        Modify the blog as per the user requirements based on the history of chat.
         Chat_history = {chat_history}
-
-        If the topic is illegal, harmful, or vulgar, respond with "I cannot assist you with illegal, harmful topics. Seeking information on such topics could indicate harmful intent."
         """
 
     prompt = ChatPromptTemplate.from_template(template=template)
@@ -124,9 +123,9 @@ if user_input is not None and user_input!="":
         st.markdown(user_input)
         
     with st.chat_message("AI"):
-        for doc in google_obj.ask_query(user_input):
-            st.markdown("### "+ doc["title"])
-            st.markdown("- "+ doc["link"])
+        # for doc in google_obj.ask_query(user_input):
+        #     st.markdown("### "+ doc["title"])
+        #     st.markdown("- "+ doc["link"])
         #this will return the output same as the chatGPT returning it
         ai_res = st.write_stream(getResponse(user_input, st.session_state.chat_history))
         
