@@ -93,18 +93,18 @@ def getResponse(query,chat_history):
 
         Make the blog SEO-friendly.
         
-        Write the article on "{query}". While writing the article on the given topic, describe the topic as a story with examples that resonate with the reader. Start so easy with general information or examples so that any user can relate and understand with the topic. As the article goes, you need to go in more and more indepth with the topic. So that you can justice with the topic and user can see satisfied with the answer. 
+        Write the article on "{query}". While writing the article on the given topic, describe the topic with examples that resonate with the reader. Start so easy with general information or examples so that any user can relate and understand with the topic. As the article goes, you need to go in more and more indepth with the topic. So that you can justice with the topic and user can see satisfied with the answer. 
+        
+        Don't make the response feel like a history lesson. The target audience of the blog post is 18-40 years old ranges people, so give mature content, not a kid like content.
         
         In response, start by writing the title of the article in double quote starting with: Title: "title"
         and then onwards just give one article in the answer. The title should not be mentioned anywhere else in the article but just on the starting. You are not allowed to mentioned the article anywhere else.
         
         Once the whole article finished, give the SEO key words you have used in the article. It's not important to give SEO keywords at the end of each section of article, you can give it in the last. 
         
-        Do not write meta description in the answer, anywhere. 
+        Do not write meta description and additional notes in the answer, anywhere. 
         
         Overall, in the answer there should be firstly Title, secondly the Article and then conclude with SEO key words used in the last. After SEO keywords, you have to stop answering further. There is no need to write anything in the end.
-        
-        Erase the "</s>" from the end line. Remember It must not be displayed on screen.
         
         Chat_history = {chat_history}
         """
