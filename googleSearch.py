@@ -27,5 +27,6 @@ class GoogleSearch():
     def ask_query(self,query:str):
         if GoogleSearch.tool is None: 
             self.make_model()
+        print(query)
         return GoogleSearch.tool.run(query)
     
