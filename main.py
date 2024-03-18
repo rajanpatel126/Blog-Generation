@@ -17,7 +17,9 @@ google_obj= GoogleSearch()
 
 #storing the history in the session state
 if "chat_history" not in st.session_state:
-    st.session_state.chat_history = []
+    st.session_state.chat_history = [
+        AIMessage(content="Hello, I am a bot. How can I help you?"),
+    ]
 
 #page confing and title of the page
 st.set_page_config(page_title='Info-GenX', page_icon='🤖',)
@@ -93,7 +95,7 @@ def getResponse(query,chat_history):
 
         Make the blog SEO-friendly.
         
-        Write the article on "{query}". While writing the article on the given topic, describe the topic with examples that resonate with the reader. Start so easy with general information or examples so that any user can relate and understand with the topic. As the article goes, you need to go in more and more indepth with the topic. So that you can justice with the topic and user can see satisfied with the answer. 
+        Write the article on "{query}". While writing the article on the given topic, describe the topic with examples that resonate with the reader. Start with general information or examples so that any user can relate and understand with the topic. As the article goes, you need to go in more and more indepth with the topic. So that you can justice with the topic and user can see satisfied with the answer. 
         
         Don't make the response feel like a history lesson. The target audience of the blog post is 18-40 years old ranges people, so give mature content, not a kid like content.
         
@@ -106,13 +108,18 @@ def getResponse(query,chat_history):
         
         Overall, in the answer there should be firstly Title, secondly the Article and then conclude with SEO key words used in the last. After SEO keywords, you have to stop answering further. There is no need to write anything in the end.
         
+        In brief, The answer must be like you are having the conversation with the user. Do not write formal lines in the answers.
+        
         Chat_history = {chat_history}
         """
 
     prompt = ChatPromptTemplate.from_template(template=template)
     chain = prompt | llm | StrOutputParser()
     
-    return chain.stream({'chat_history':chat_history , 'query': query})
+    response = chain.stream({'chat_history':chat_history , 'query': query})
+    
+    response = (text.replace('</s>', '') for text in response)
+    return response
     
 #user input
 user_input = st.chat_input("Write your blog topic or article idea...")
