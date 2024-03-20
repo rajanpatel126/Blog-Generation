@@ -47,11 +47,11 @@ with st.expander("About the Bot"):
 
         🚀 Unleashing the Power of Real-Time Information Retrieval:
 
-        Info-GenX seamlessly integrates two powerful features—Google Search and AI Content Generation—to provide an unparalleled writing experience. Harness the latest information at your fingertips with a real-time Google search that ensures your content is not only relevant but also up-to-the-minute.
+        Info-GenX seamlessly integrates two powerful features— Internet Search and AI Content Generation—to provide an unparalleled writing experience. Harness the latest information at your fingertips with a real-time Web search that ensures your content is not only relevant but also up-to-the-minute.
 
-        🔍 Supercharged Google Search Results:
+        🔍 Supercharged Web Search Results:
 
-        Ever wished for a tool that not only fetches Google search results but also transforms them into engaging, informative snippets? Look no further! Info-GenX combines the precision of Google Search with the flair of carefully curated content, delivering results that go beyond conventional search output.
+        Ever wished for a tool that not only fetches Web search results but also transforms them into engaging, informative snippets? Look no further! Info-GenX combines the precision of complete Internet Search with the flair of carefully curated content, delivering results that go beyond conventional search output.
 
         📝 AI-Driven Content Generation:
 
