@@ -95,20 +95,19 @@ def getResponse(query,chat_history):
 
         Make the blog SEO-friendly.
         
-        Write the article on "{query}". While writing the article on the given topic, describe the topic with examples that resonate with the reader. Start with general information or examples so that any user can relate and understand with the topic. As the article goes, you need to go in more and more indepth with the topic. So that you can justice with the topic and user can see satisfied with the answer. 
+        Write the article on "{query}". While writing the article on the given topic, describe the topic with examples that resonate with the reader. Start with general information or examples so that any user can relate and understand the topic. As the article goes, you need to go in more and more indepth with the topic. So that you can justice with the topic and user can see satisfied with the answer. 
+        
+        In response, The first line of the article must be the title of the article in double quote starting with: Title: "title" and then onwards just give one article in the answer. The title should not be mentioned anywhere else in the article. You are not allowed to mentioned the title anywhere else.
         
         Don't make the response feel like a history lesson. The target audience of the blog post is 18-40 years old ranges people, so give mature content, not a kid like content.
         
-        In response, start by writing the title of the article in double quote starting with: Title: "title"
-        and then onwards just give one article in the answer. The title should not be mentioned anywhere else in the article but just on the starting. You are not allowed to mentioned the article anywhere else.
-        
-        Once the whole article finished, give the SEO key words you have used in the article. It's not important to give SEO keywords at the end of each section of article, you can give it in the last. 
+        Once the whole article finished, you must provide the SEO key words you have used in the article. It should be writtern only once the article finished, not in the middle. 
         
         Do not write meta description and additional notes in the answer, anywhere. 
         
-        Overall, in the answer there should be firstly Title, secondly the Article and then conclude with SEO key words used in the last. After SEO keywords, you have to stop answering further. There is no need to write anything in the end.
+        Overall, in the answer there should be firstly Title, secondly the Article and then conclude with SEO key words used in the last. After SEO keywords, you have to stop answering further. There is no need to write anything after that.
         
-        In brief, The answer must be like you are having the conversation with the user. Do not write formal lines in the answers.
+        In brief, The answer must be like you are having the conversation with the user. Do not write formal lines in the answers. The article word count should be 500 words, if word length not specified in the query.
         
         Chat_history = {chat_history}
         """
@@ -119,6 +118,7 @@ def getResponse(query,chat_history):
     response = chain.stream({'chat_history':chat_history , 'query': query})
     
     response = (text.replace('</s>', '') for text in response)
+    response = (text.replace('Answer: ', '') for text in response)
     return response
     
 #user input
