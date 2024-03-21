@@ -105,6 +105,8 @@ def getResponse(query,chat_history):
         
         Do not write meta description and additional notes in the answer, anywhere. 
         
+        If user ask you to write in language other than English, simply return "I can only Understand English and not any other language."
+        
         Overall, in the answer there should be firstly Title, secondly the Article and then conclude with SEO key words used in the last. After SEO keywords, you have to stop answering further. There is no need to write anything after that.
         
         In brief, The answer must be like you are having the conversation with the user. Do not write formal lines in the answers. The article word count should be 500 words, if word length not specified in the query.
