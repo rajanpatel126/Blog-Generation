@@ -109,6 +109,7 @@ def getResponse(query,chat_history):
         
         In brief, The answer must be like you are having the conversation with the user. Do not write formal lines in the answers. The article word count should be 500 words, if word length not specified in the query.
         
+        If continuos question are asking, then from the chat history, replay the answer based on the history accordingly.
         Chat_history = {chat_history}
         """
 
@@ -118,7 +119,8 @@ def getResponse(query,chat_history):
     response = chain.stream({'chat_history':chat_history , 'query': query})
     
     response = (text.replace('</s>', '') for text in response)
-    response = (text.replace('Answer: ', '') for text in response)
+    response = (text.replace('Ass ert:', '') for text in response)
+    response = (text.replace('Answer:', '') for text in response)
     return response
     
 #user input
